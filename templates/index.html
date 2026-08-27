@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Registration</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <div class="header">
+
+        <h1 class="heading">Student Registration Portal</h1>
+
+        <p class="subtitle">
+            Welcome to our student registration page
+        </p>
+
+    </div>
+
+
+    <!-- About Section -->
+
+    <div class="about">
+
+        <h2>About the Course</h2>
+
+        <p>
+            Welcome to the Web Development course.
+            In this course, students will learn HTML, CSS
+            and JavaScript.
+        </p>
+
+        <a href="https://www.google.com/" target="_blank">
+            Visit Google
+        </a>
+
+    </div>
+
+
+    <!-- Main Container -->
+
+    <div class="container">
+
+
+        <!-- Registration Form -->
+
+        <div class="form-box">
+
+    <h2>Student Registration</h2>
+
+    <form method="POST">
+
+        <label>Name:</label>
+
+        <br>
+
+        <input type="text" name="name">
+
+        <br><br>
+
+
+        <label>Email:</label>
+
+        <br>
+
+        <input type="text" name="email">
+
+        <br><br>
+
+
+        <label>Course:</label>
+
+        <br>
+
+        <select name="course">
+
+            <option>HTML</option>
+            <option>CSS</option>
+            <option>JavaScript</option>
+
+        </select>
+
+        <br><br>
+
+
+        <input type="submit" value="Register">
+
+    </form>
+
+</div>
+
+
+        <!-- Image Section -->
+
+        <div class="image-box">
+
+            <h2>Learn Web Development</h2>
+
+            <img src="{{ url_for('static', filename='web.webp') }}"
+                 alt="Web Development"
+                 height="150px"
+                 width="150px">
+
+            <p>
+                Learn the fundamentals of web development
+                and build your own websites.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Course List -->
+
+    <div class="course-section">
+
+        <h2>Course Topics</h2>
+
+        <ol>
+
+            <li>HTML Basics</li>
+            <li>CSS Basics</li>
+            <li>JavaScript Basics</li>
+
+        </ol>
+
+
+        <h2>Required Skills</h2>
+
+        <ul>
+
+            <li>Basic Computer Knowledge</li>
+            <li>Problem Solving</li>
+            <li>Interest in Web Development</li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- Student Table -->
+
+    <div class="table-section">
+
+        <h2>Student Details</h2>
+
+        <table>
+
+            <tr>
+
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Course</th>
+                <th>Marks</th>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Rahul</td>
+                <td>Male</td>
+                <td>HTML</td>
+                <td>85</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Priya</td>
+                <td>Female</td>
+                <td>CSS</td>
+                <td>90</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Amit</td>
+                <td>Male</td>
+                <td>JavaScript</td>
+                <td>88</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Total</td>
+                <td>-</td>
+                <td>-</td>
+                <td>263</td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+    <div class="registered-section">
+
+    <h2>Registered Students</h2>
+
+    <table>
+
+        <tr>
+
+            <th>Name</th>
+            <th>Email</th>
+            <th>Course</th>
+
+        </tr>
+
+
+        {% for student in students %}
+
+        <tr>
+
+            <td>{{ student.name }}</td>
+
+            <td>{{ student.email }}</td>
+
+            <td>{{ student.course }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+
+    <!-- Footer -->
+
+    <div class="footer">
+
+        <p>
+            Thank you for visiting our Student Registration Portal.
+        </p>
+
+    </div>
+
+</body>
+
+</html>

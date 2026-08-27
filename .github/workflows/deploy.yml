@@ -1,0 +1,68 @@
+name: Build and Deploy Static Website
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Flask
+        run: pip install Flask
+
+      - name: Start Flask temporarily
+        run: |
+          python app.py > flask.log 2>&1 &
+          for attempt in {1..30}; do
+            if curl --silent --fail http://127.0.0.1:5000/ > /dev/null; then
+              break
+            fi
+            sleep 1
+          done
+
+      - name: Generate static website
+        run: |
+          mkdir -p _site/static
+          curl --fail http://127.0.0.1:5000/ > _site/index.html
+          cp static/* _site/static/
+
+          # Convert Flask absolute paths for GitHub Pages
+          sed -i 's#"/static/#"static/#g' _site/index.html
+          sed -i "s#'/static/#'static/#g" _site/index.html
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload static website
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

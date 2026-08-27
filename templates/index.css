@@ -1,0 +1,248 @@
+body {
+
+    background-color: lightgray;
+
+    font-family: Arial, sans-serif;
+
+    margin: 0;
+
+}
+
+
+/* Header */
+
+.header {
+
+    background-color: aquamarine;
+
+    text-align: center;
+
+    padding: 20px;
+
+}
+
+
+.heading {
+
+    font-size: 40px;
+
+    margin: 10px;
+
+}
+
+
+.subtitle {
+
+    font-size: 20px;
+
+}
+
+
+/* About Section */
+
+.about {
+
+    background-color: white;
+
+    margin: 20px;
+
+    padding: 20px;
+
+    border: 2px solid black;
+
+    text-align: center;
+
+}
+
+
+.about h2 {
+
+    font-size: 28px;
+
+}
+
+
+/* Main Container */
+
+.container {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+/* Form */
+
+.form-box {
+
+    background-color: white;
+
+    width: 400px;
+
+    padding: 20px;
+
+    margin: 20px;
+
+    border: 3px solid black;
+
+}
+
+
+.form-box h2 {
+
+    background-color: aquamarine;
+
+    text-align: center;
+
+    padding: 10px;
+
+}
+
+
+.form-box input {
+
+    margin-top: 5px;
+
+}
+
+
+.form-box select {
+
+    margin-top: 5px;
+
+}
+
+
+/* Image Section */
+
+.image-box {
+
+    background-color: white;
+
+    width: 300px;
+
+    height: 350px;
+
+    padding: 20px;
+
+    margin: 20px;
+
+    border: 3px solid black;
+
+    text-align: center;
+
+}
+
+
+.image-box h2 {
+
+    background-color: aquamarine;
+
+    padding: 10px;
+
+}
+
+
+.image-box img {
+
+    margin: 10px;
+
+}
+
+
+/* Course Section */
+
+.course-section {
+
+    background-color: white;
+
+    margin: 20px;
+
+    padding: 20px;
+
+    border: 3px solid black;
+
+}
+
+
+.course-section h2 {
+
+    background-color: aquamarine;
+
+    padding: 10px;
+
+}
+
+
+/* Table */
+
+.table-section {
+
+    background-color: white;
+
+    margin: 20px;
+
+    padding: 20px;
+
+    border: 3px solid black;
+
+}
+
+
+.table-section h2 {
+
+    text-align: center;
+
+    background-color: aquamarine;
+
+    padding: 10px;
+
+}
+
+
+table {
+
+    width: 100%;
+
+    border: 3px solid black;
+
+}
+
+
+th {
+
+    background-color: aquamarine;
+
+    padding: 10px;
+
+}
+
+
+td {
+
+    background-color: lightgray;
+
+    padding: 10px;
+
+    text-align: center;
+
+}
+
+
+/* Footer */
+
+.footer {
+
+    background-color: aquamarine;
+
+    text-align: center;
+
+    padding: 20px;
+
+    margin-top: 20px;
+
+}
